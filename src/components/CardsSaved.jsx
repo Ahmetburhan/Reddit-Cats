@@ -74,17 +74,19 @@ export default class CardsSaved extends React.Component {
         return (
 
             <div>
-                        <Col className="col" sm="6" md="4" lg="3" mt="4">
-
+                
+                <Col className="col" sm="6" md="4" lg="3" mt="4" style={{
+                    paddingTop: "250px",
+                }}>
                             <Card style={{
                                 fontFamily: 'Helvetica Neue',
-                                marginBottom: "1em"
+                                marginBottom: "1em",
                     }} onClick={this.handleClick} >
                                 <div >
                             <CardImg top width="100%" className="photo2" src={this.props.cat && this.props.url} alt="Card image cap" />
                                     <CardBody>
                                 <CardTitle><CardLink href={`https://www.reddit.com/${this.props.cat && this.props.permalink}`} target="_blank">{this.props.cat && this.props.title}... </CardLink></CardTitle>
-                                <CardSubtitle>{this.props.cat && this.props.cat.kind}</CardSubtitle>
+                                {/* <CardSubtitle>{this.props.cat && this.props.cat.kind}</CardSubtitle> */}
                                         <CardText>
                                         </CardText>
                                         <Button outline color="danger">Save Me <i style={{ verticalAlign: "-0.24em" }} className="fab fa-pinterest fa-2x"></i></Button>{' '}
