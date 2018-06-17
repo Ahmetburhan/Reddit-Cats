@@ -25,6 +25,8 @@ class App extends Component {
         }
      this.onSubmit = this.onSubmit.bind(this);
      this.handleClick = this.handleClick.bind(this);
+     
+   
 
     }
 
@@ -55,7 +57,11 @@ class App extends Component {
         console.log("cat is selected title", cat.data.title)
         console.log("cat is selected URL", cat.data.url)
         this.setState({ 
-            selectedCat: cat, 
+            selectedCat: cat,
+            selectedTitle: cat.data.title,
+            selectedUrl: cat.data.url,
+            selectedPermalink: cat.data.permalink
+
         })
 
 
@@ -68,17 +74,19 @@ class App extends Component {
      })
     }
 
+    
 
     render() {
         console.log("checking", this.state.selectedCat);
+        console.log("cat is selected title", this.state.selectedTitle)
+        console.log("cat is selected title", this.state.selectedUrl)
+        console.log("cat is selected title", this.state.selectedPermalink)
+
 
 
 
         return ( <div className = "App" >
-             <SubmitForm onSubmit = {this.onSubmit} cats = {
-                this.state.cats
-            }
-            />
+            
 
               <CardsSaved handleClick={
                 this.handleClick
@@ -88,7 +96,11 @@ class App extends Component {
                 }
                 cat={
                     this.state.selectedCat
-                } /> 
+                } 
+                title={this.state.selectedTitle}
+                url={this.state.selectedUrl}
+                permalink={this.state.selectedPermalink}
+                /> 
                 <hr/>
             <Cards handleClick = {
                 this.handleClick

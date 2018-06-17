@@ -9,15 +9,16 @@ export default class CardsSaved extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            popoverOpen: false
+            cats: this.props.cats,
+            cat: this.props.selectedCat
         };
         
 
     }
-    state = {
-        cats: this.props.cats,
-        cat: this.props.selectedCat
-    }
+    // state = {
+    //     cats: this.props.cats,
+    //     cat: this.props.selectedCat
+    // }
 
   
    
@@ -25,7 +26,9 @@ export default class CardsSaved extends React.Component {
     handleClick = (cat) => {
         console.log("cat is selected titlecards", cat.data.title)
         console.log("cat is selected URLcards", cat.data.url)
-        this.setState({ selectedCat: cat })
+        this.setState({ 
+            selectedCat: cat
+         })
 
 
     }
@@ -38,6 +41,7 @@ export default class CardsSaved extends React.Component {
     }
 
     render() {
+        console.log("@a", this.props.cat.data)
         console.log("props coming here cardssaved", this.props)
         const cats = this.props.cats;
         console.log("cardssavedstuff", this.props.selectedCat)
@@ -45,20 +49,21 @@ export default class CardsSaved extends React.Component {
         let selectedCat;
         let cat;
         let title;
+        let url;
+        let selectedTitle;
 
     
 
-        console.log("hereeeeeee", this.props.cat.data)
+        console.log("hereeeeeee", this.props.cat.kind)
+        const object = this.props.cat.data;
+        // const newCat= Object.values(object)
+        title = this.props.cat.data
 
-        // if (this.props.cat.data) {
-        //     title = this.props.cat.data.map(
-        //         (obj) => (<h2>{obj.title}</h2>)
-        //     )
-
-        // }
+        console.log("zzzzzz", this.props.cat)
+        console.log("zzzzzz", this.props.selectedTitle)
+     
 
         
-
 
     
         console.log("testttttt", title)
@@ -69,10 +74,6 @@ export default class CardsSaved extends React.Component {
         return (
 
             <div>
-                
-
-
-
                         <Col className="col" sm="6" md="4" lg="3" mt="4">
 
                             <Card style={{
@@ -80,10 +81,10 @@ export default class CardsSaved extends React.Component {
                                 marginBottom: "1em"
                     }} onClick={this.handleClick} >
                                 <div >
-                                    <CardImg top width="100%" className="photo2" src={this.props.cat.data.url} alt="Card image cap" />
+                            <CardImg top width="100%" className="photo2" src={this.props.cat && this.props.url} alt="Card image cap" />
                                     <CardBody>
-                                <CardTitle><CardLink href={`https://www.reddit.com/${this.props.cat.data.permalink}`} target="_blank">{this.props.cat.data.title}... </CardLink></CardTitle>
-                                        <CardSubtitle>{this.props.cat.data.title}</CardSubtitle>
+                                <CardTitle><CardLink href={`https://www.reddit.com/${this.props.cat && this.props.permalink}`} target="_blank">{this.props.cat && this.props.title}... </CardLink></CardTitle>
+                                <CardSubtitle>{this.props.cat && this.props.cat.kind}</CardSubtitle>
                                         <CardText>
                                         </CardText>
                                         <Button outline color="danger">Save Me <i style={{ verticalAlign: "-0.24em" }} className="fab fa-pinterest fa-2x"></i></Button>{' '}
@@ -92,9 +93,8 @@ export default class CardsSaved extends React.Component {
                                 </div>
                             </Card>
                         </Col>
-                    )
-                )
-                } 
+                
+        
             </div>
         )
     }
