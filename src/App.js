@@ -19,8 +19,7 @@ class App extends Component {
             cat:[],
             cats:[],
             filteredcats: [],
-            selectedCat: []
-            
+            selectedCat: [] 
 
         }
      this.onSubmit = this.onSubmit.bind(this);
@@ -30,9 +29,12 @@ class App extends Component {
 
     }
 
-
-
-    //  this.componentDidMount = this.componentDidMount.bind(this);
+    componentWillMount = () => {
+      localStorage.getItem("selectedCat") && this.setState({
+          selectedCat: JSON.parse(localStorage.getItem("selectedCat"))
+      })
+    }
+    
 
     componentDidMount() {
         request
@@ -52,6 +54,12 @@ class App extends Component {
                 }
             })
     };
+    componentWillUpdate = (nextProps, nextState) => {
+        localStorage.setItem("selectedCat", JSON.stringify(nextState.selectedCat))
+
+      
+    }
+    
 
     handleClick = (cat) => {
         console.log("cat is selected title", cat.data.title)
