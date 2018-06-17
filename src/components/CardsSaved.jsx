@@ -5,11 +5,9 @@ import {
 } from 'reactstrap';
 
 
-export default class Cards extends React.Component {
+export default class CardsSaved extends React.Component {
     constructor(props) {
         super(props);
-
-        this.toggle = this.toggle.bind(this);
         this.state = {
             popoverOpen: false
         };
@@ -18,30 +16,43 @@ export default class Cards extends React.Component {
     }
     state = {
         cats: this.props.cats,
+        cat: this.props.selectedCat
     }
 
-    findDetail = id => {
-        let catDetail = this.props.cats.find(cat => id === cat.data.created);
-        this.props.handleClick(catDetail)
-        console.log("bbbbbbbbb",catDetail)
-        console.log("bbbbbbbbb", id)
+  
+   
+
+    handleClick = (cat) => {
+        console.log("123",this.props.cats)
+        console.log("aaaaaaaaaaaa", this.props.catDetail)
+        console.log("cat is selected", cat)
+        this.setState({ selectedCat: cat })
 
     }
-    toggle() {
+
+    onSubmit(filteredcats) {
         this.setState({
-            popoverOpen: !this.state.popoverOpen
-        });
+            filteredcats,
+
+        })
     }
 
     render() {
-        console.log("props coming here", this.props)
+        console.log("props coming here cardssaved", this.props)
         const cats = this.props.cats;
-        console.log("aadassss", cats)
+        console.log("cardssavedstuff", this.props.selectedCat)
         let picture;
+        let selectedCat;
+        let cat;
+        let title;
+
+    
+
+        console.log("hereeeeeee", cat.data)
         // let trimmedTitle = this.props.cat.data.title.substr(0, 12);
 
        
-        console.log("asdasd", picture)
+        console.log("catDetail on cardsaved", this.props.catDetail)
         return (
 
             <div>

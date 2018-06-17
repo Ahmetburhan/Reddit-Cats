@@ -48,8 +48,9 @@ class App extends Component {
     };
 
     handleClick = (cat) => {
-        console.log("cat is selected", cat)
+        console.log("cat is selected appppp", cat)
         this.setState({ selectedCat: cat })
+
 
     }
 
@@ -68,7 +69,7 @@ class App extends Component {
                 this.state.cats
             }
             />
-            <CardsSaved handleClick={
+              <CardsSaved handleClick={
                 this.handleClick
             }
                 cats={
@@ -76,7 +77,8 @@ class App extends Component {
                 }
                 cat={
                     this.state.selectedCat
-                } />
+                } /> 
+                <hr/>
             <Cards handleClick = {
                 this.handleClick
             }

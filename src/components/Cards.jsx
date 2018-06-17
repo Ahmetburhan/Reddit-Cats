@@ -3,6 +3,8 @@ import {
     Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardLink, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
 } from 'reactstrap';
+import CardsSaved from './CardsSaved';
+
 
 
 export default class Cards extends React.Component {
@@ -23,8 +25,8 @@ export default class Cards extends React.Component {
     findDetail = id => {
         let catDetail = this.props.cats.find(cat => id === cat.data.created);
         this.props.handleClick(catDetail)
-        console.log("aaaaaa",catDetail)
-        console.log("aaaaaa", id)
+        console.log("catDetail",catDetail)
+        console.log("here is the id clicked", id)
 
     }
     toggle() {
@@ -38,13 +40,22 @@ export default class Cards extends React.Component {
         const cats = this.props.cats;
         console.log("aadassss", cats)
         let picture;
+        let catDetail;
+
        
         console.log("asdasd", picture)
+        console.log("aaaaaaaaaaaa", catDetail)
+
         return (
 
             <div>
+                
                 <h2>{cats && cats.length} Total Cats Found</h2>
                 {cats && cats.map((cat, index) => {
+
+                    // <CardsSaved handleClick={this.handleClick}
+                    //     cats={this.state.cats}
+                    //     cat={this.state.selectedCat} />
                     console.log(cat)
                     console.log(index)
                     console.log(cat.data.created)
@@ -54,6 +65,7 @@ export default class Cards extends React.Component {
 
 
                     return (
+
 
                         <Col className="col" sm="6" md="4" lg="3" mt="4">
 
