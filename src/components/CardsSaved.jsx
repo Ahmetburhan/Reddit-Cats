@@ -23,10 +23,10 @@ export default class CardsSaved extends React.Component {
    
 
     handleClick = (cat) => {
-        console.log("123",this.props.cats)
-        console.log("aaaaaaaaaaaa", this.props.catDetail)
-        console.log("cat is selected", cat)
+        console.log("cat is selected titlecards", cat.data.title)
+        console.log("cat is selected URLcards", cat.data.url)
         this.setState({ selectedCat: cat })
+
 
     }
 
@@ -48,7 +48,20 @@ export default class CardsSaved extends React.Component {
 
     
 
-        console.log("hereeeeeee", cat.data)
+        console.log("hereeeeeee", this.props.cat.data)
+
+        // if (this.props.cat.data) {
+        //     title = this.props.cat.data.map(
+        //         (obj) => (<h2>{obj.title}</h2>)
+        //     )
+
+        // }
+
+        
+
+
+    
+        console.log("testttttt", title)
         // let trimmedTitle = this.props.cat.data.title.substr(0, 12);
 
        
@@ -59,16 +72,13 @@ export default class CardsSaved extends React.Component {
                 
 
 
-{/* 
+
                         <Col className="col" sm="6" md="4" lg="3" mt="4">
 
                             <Card style={{
                                 fontFamily: 'Helvetica Neue',
                                 marginBottom: "1em"
-                            }} onClick={e => {
-                                e.preventDefault()
-                                this.findDetail(this.props.cat.data.created)
-                            }} >
+                    }} onClick={this.handleClick} >
                                 <div >
                                     <CardImg top width="100%" className="photo2" src={this.props.cat.data.url} alt="Card image cap" />
                                     <CardBody>
@@ -84,7 +94,7 @@ export default class CardsSaved extends React.Component {
                         </Col>
                     )
                 )
-                } */}
+                } 
             </div>
         )
     }

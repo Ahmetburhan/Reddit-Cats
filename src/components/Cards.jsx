@@ -15,11 +15,13 @@ export default class Cards extends React.Component {
         this.state = {
             popoverOpen: false
         };
-        
+ 
 
     }
     state = {
         cats: this.props.cats,
+        cat: this.props.cat,
+
     }
 
     findDetail = id => {

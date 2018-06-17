@@ -6,14 +6,18 @@ import Cards from './components/Cards';
 import CardsSaved from './components/CardsSaved';
 
 import SubmitForm from './components/SubmitForm';
-
+import {
+    Col, Card, CardImg, CardText, CardBody,
+    CardTitle, CardLink, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
+} from 'reactstrap';
 
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cats: [],
+            cat:[],
+            cats:[],
             filteredcats: [],
             selectedCat: []
             
@@ -48,8 +52,11 @@ class App extends Component {
     };
 
     handleClick = (cat) => {
-        console.log("cat is selected appppp", cat)
-        this.setState({ selectedCat: cat })
+        console.log("cat is selected title", cat.data.title)
+        console.log("cat is selected URL", cat.data.url)
+        this.setState({ 
+            selectedCat: cat, 
+        })
 
 
     }
@@ -63,12 +70,16 @@ class App extends Component {
 
 
     render() {
+        console.log("checking", this.state.selectedCat);
+
+
 
         return ( <div className = "App" >
              <SubmitForm onSubmit = {this.onSubmit} cats = {
                 this.state.cats
             }
             />
+
               <CardsSaved handleClick={
                 this.handleClick
             }
