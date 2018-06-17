@@ -37,6 +37,7 @@ class App extends Component {
     
 
     componentDidMount() {
+        
         request
             .get('https://www.reddit.com/r/cats/top/.json?count=20').then(res => {
                 if (res.ok) {
