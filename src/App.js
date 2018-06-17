@@ -3,6 +3,8 @@ import React, {
 } from 'react';
 import request from 'superagent';
 import Cards from './components/Cards';
+import CardsSaved from './components/CardsSaved';
+
 import SubmitForm from './components/SubmitForm';
 
 
@@ -66,7 +68,15 @@ class App extends Component {
                 this.state.cats
             }
             />
-
+            <CardsSaved handleClick={
+                this.handleClick
+            }
+                cats={
+                    this.state.cats
+                }
+                cat={
+                    this.state.selectedCat
+                } />
             <Cards handleClick = {
                 this.handleClick
             }
