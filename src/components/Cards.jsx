@@ -31,11 +31,7 @@ export default class Cards extends React.Component {
         console.log("here is the id clicked", id)
 
     }
-    toggle() {
-        this.setState({
-            popoverOpen: !this.state.popoverOpen
-        });
-    }
+   
 
     render() {
         console.log("props coming here", this.props)
