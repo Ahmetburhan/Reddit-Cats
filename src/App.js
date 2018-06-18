@@ -4,6 +4,7 @@ import React, {
 import request from 'superagent';
 import Cards from './components/Cards';
 import CardsSaved from './components/CardsSaved';
+import _ from 'lodash';
 
 import SubmitForm from './components/SubmitForm';
 import {
@@ -19,7 +20,7 @@ class App extends Component {
             cat:[],
             cats:[],
             filteredcats: [],
-            selectedCat: [] 
+            selectedCats: [] 
 
         }
      this.onSubmit = this.onSubmit.bind(this);
@@ -30,8 +31,8 @@ class App extends Component {
     }
 
     componentWillMount = () => {
-      localStorage.getItem("selectedCat") && this.setState({
-          selectedCat: JSON.parse(localStorage.getItem("selectedCat"))
+      localStorage.getItem("selectedCats") && this.setState({
+          selectedCats: JSON.parse(localStorage.getItem("selectedCats"))
       })
     }
     
@@ -56,8 +57,9 @@ class App extends Component {
             })
     };
     componentWillUpdate = (nextProps, nextState) => {
-        localStorage.setItem("selectedCat", JSON.stringify(nextState.selectedCat))
-
+        localStorage.setItem("selectedCats", JSON.stringify(nextState.selectedCats))
+        console.log("testing",localStorage.selectedCats)
+       
       
     }
     
@@ -65,13 +67,16 @@ class App extends Component {
     handleClick = (cat) => {
         console.log("cat is selected title", cat.data.title)
         console.log("cat is selected URL", cat.data.url)
+        const _selectedCats = _.cloneDeep(this.state.selectedCats);
+        _selectedCats.push(cat);
         this.setState({ 
-            selectedCat: cat,
-            selectedTitle: cat.data.title,
-            selectedUrl: cat.data.url,
-            selectedPermalink: cat.data.permalink
+            selectedCats: _selectedCats,
+            // selectedTitle: cat.data.title,
+            // selectedUrl: cat.data.url,
+            // selectedPermalink: cat.data.permalink
 
         })
+         
 
 
     }
@@ -103,8 +108,8 @@ class App extends Component {
                 cats={
                     this.state.cats
                 }
-                cat={
-                    this.state.selectedCat
+                selectedCats={
+                    this.state.selectedCats
                 } 
                 title={this.state.selectedTitle}
                 url={this.state.selectedUrl}
@@ -117,8 +122,8 @@ class App extends Component {
             cats = {
                 this.state.cats
             }
-            cat = {
-                this.state.selectedCat
+            selectedCats = {
+                this.state.selectedCats
             }/>
 
             </div>
