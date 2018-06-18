@@ -11,7 +11,6 @@ export default class Cards extends React.Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
         this.state = {
             popoverOpen: false
         };
@@ -31,6 +30,7 @@ export default class Cards extends React.Component {
         console.log("here is the id clicked", id)
 
     }
+    
    
 
     render() {
@@ -70,18 +70,23 @@ export default class Cards extends React.Component {
                             <Card style={{
                                 fontFamily: 'Helvetica Neue',
                                 marginBottom: "1em"
-                            }} onClick={e => {
-                                e.preventDefault()
-                                this.findDetail(cat.data.created)
-                            }} >
+                            }}  >
                                 <div key={cat.data.created}>
-                                    <CardImg top width="100%" className="photo2" src={cat.data.url} alt="Card image cap" />
+                                    <CardImg onClick={e => {
+                                        e.preventDefault()
+                                        this.findDetail(cat.data.created)
+                                    }}top width="100%" className="photo2" src={cat.data.url} alt="Card image cap" />
                                     <CardBody>
-                                        <CardTitle><CardLink href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">{trimmedTitle}... </CardLink></CardTitle>
+                                        <CardTitle><CardLink onClick={e => {
+                                            e.preventDefault()
+                                        }} href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">{trimmedTitle}... </CardLink></CardTitle>
                                         <CardSubtitle>{cat.data.title}</CardSubtitle>
                                         <CardText>
                                         </CardText>
-                                        <Button outline color="danger">Save Me <i style={{ verticalAlign: "-0.24em" }} className="fab fa-pinterest fa-2x"></i></Button>{' '}
+                                        <Button onClick={e => {
+                                            e.preventDefault()
+                                            this.findDetail(cat.data.created)
+                                        }} outline color="danger">Save Me <i style={{ verticalAlign: "-0.24em" }} className="fab fa-pinterest fa-2x"></i></Button>{' '}
 
                                     </CardBody>
                                 </div>

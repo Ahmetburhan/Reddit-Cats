@@ -24,13 +24,13 @@ export default class CardsSaved extends React.Component {
   
    
 
-    // handleClick = (cat) => {
-    //     console.log("cat is selected titlecards", cat.data.title)
-    //     console.log("cat is selected URLcards", cat.data.url)
-    //     this.setState({ 
-    //         selectedCats: cat
-    //      })
-    // }
+    handleClick = (cat) => {
+        console.log("cat is selected titlecards", cat.data.title)
+        console.log("cat is selected URLcards", cat.data.url)
+        this.setState({ 
+            selectedCats: cat
+         })
+    }
 
     onSubmit(filteredcats) {
         this.setState({
