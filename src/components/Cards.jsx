@@ -52,7 +52,7 @@ export default class Cards extends React.Component {
 
             <div>
                 
-                <h2>{cats && cats.length} Total Cats Found</h2>
+                <h2>{this.props.title}</h2>
                 {cats && cats.map((cat, index) => {
 
                     // <CardsSaved handleClick={this.handleClick}

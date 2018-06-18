@@ -73,7 +73,9 @@ export default class CardsSaved extends React.Component {
 
             <div>
 
-                <Cards cats={this.props.selectedCats} />
+                <Cards cats={this.props.selectedCats} title={
+                    this.props.selectedCats && this.props.selectedCats.length + " Total Cats Selected"
+                } />
                 
         
             </div>

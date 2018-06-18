@@ -119,6 +119,9 @@ class App extends Component {
             <Cards handleClick = {
                 this.handleClick
             }
+            title = {
+                this.state.cats && this.state.cats.length + " Total Cats Found"
+            }
             cats = {
                 this.state.cats
             }
