@@ -22,7 +22,6 @@ class App extends Component {
             selectedCats: [] 
 
         }
-     this.onSubmit = this.onSubmit.bind(this);
      this.handleClick = this.handleClick.bind(this);
      
    
@@ -80,12 +79,7 @@ class App extends Component {
 
     }
 
-    onSubmit (filteredcats) {
-     this.setState ({
-         filteredcats,
 
-     })
-    }
 
     
 

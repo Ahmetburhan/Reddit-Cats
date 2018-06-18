@@ -51,9 +51,6 @@ export default class Cards extends React.Component {
                 <h2>{this.props.title}</h2>
                 {cats && cats.map((cat, index) => {
 
-                    // <CardsSaved handleClick={this.handleClick}
-                    //     cats={this.state.cats}
-                    //     cat={this.state.selectedCat} />
                     console.log(cat)
                     console.log(index)
                     console.log(cat.data.created)
