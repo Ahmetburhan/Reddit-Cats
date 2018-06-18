@@ -16,11 +16,7 @@ export default class CardsSaved extends React.Component {
         
 
     }
-    // state = {
-    //     cats: this.props.cats,
-    //     cat: this.props.selectedCat
-    // }
-
+  
   
    
 
@@ -32,10 +28,19 @@ export default class CardsSaved extends React.Component {
          })
     }
 
-    onSubmit(filteredcats) {
+   
+
+    resetForm = () => {
+        //this will clear local storage
+        window.localStorage.clear();
+        //this will rerender the page
+        window.location.reload();
+        // localStorage.clear();
+
         this.setState({
-            filteredcats,
-        })
+            selectedCats:[]
+            
+        });
     }
 
     render() {
@@ -50,25 +55,6 @@ export default class CardsSaved extends React.Component {
         let selectedTitle;
 
     
-
-        // console.log("hereeeeeee", this.props.cat.kind)
-        // const object = this.props.cat.data;
-        // const newCat= Object.values(object)
-        // title = this.props.cat.data
-
-        // console.log("zzzzzz", this.props.cat)
-        // console.log("zzzzzz", this.props.selectedTitle)
-     
-
-        
-
-    
-        // console.log("testttttt", title)
-        // let trimmedTitle = this.props.cat.data.title.substr(0, 12);
-
-       
-        // console.log("catDetail on cardsaved", this.props.catDetail)
-        // const cat = this.props.selectedCats[0];
         return (
 
             <div>
@@ -76,6 +62,7 @@ export default class CardsSaved extends React.Component {
                 <Cards cats={this.props.selectedCats} title={
                     this.props.selectedCats && this.props.selectedCats.length + " Total Cats Selected"
                 } />
+                <button className="btn btn-default" type="submit" name="resetForm" value="cancel" onClick={this.resetForm}>Reset</button>
                 
         
             </div>

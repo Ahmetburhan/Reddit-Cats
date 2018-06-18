@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Col, Card, CardImg, CardText, CardBody,
-    CardTitle, CardLink, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
+    CardTitle, CardLink, CardSubtitle, Button, Badge, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
 } from 'reactstrap';
 import CardsSaved from './CardsSaved';
 
@@ -74,7 +74,18 @@ export default class Cards extends React.Component {
                                         this.findDetail(cat.data.created)
                                     }}top width="100%" className="photo2" src={cat.data.url} alt="Card image cap" />
                                     <CardBody>
-                                        <CardTitle><CardLink href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">{trimmedTitle}... </CardLink></CardTitle>
+                                        <CardTitle>
+                                        <CardLink href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">
+                                        
+                                        
+                                        {trimmedTitle}... 
+                                        <Button onClick={e => {
+                                            e.preventDefault()
+                                            this.findDetail(cat.data.created)
+                                        }} color="danger"><i style={{ verticalAlign: "-0.24em" }} className="far fa-thumbs-up fa-1x"></i></Button>
+                                        </CardLink>
+                                        
+                                        </CardTitle>
                                         <CardSubtitle>{cat.data.title}</CardSubtitle>
                                         <CardText>
                                         </CardText>
