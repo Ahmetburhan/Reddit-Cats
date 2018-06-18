@@ -77,9 +77,7 @@ export default class Cards extends React.Component {
                                         this.findDetail(cat.data.created)
                                     }}top width="100%" className="photo2" src={cat.data.url} alt="Card image cap" />
                                     <CardBody>
-                                        <CardTitle><CardLink onClick={e => {
-                                            e.preventDefault()
-                                        }} href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">{trimmedTitle}... </CardLink></CardTitle>
+                                        <CardTitle><CardLink href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">{trimmedTitle}... </CardLink></CardTitle>
                                         <CardSubtitle>{cat.data.title}</CardSubtitle>
                                         <CardText>
                                         </CardText>
