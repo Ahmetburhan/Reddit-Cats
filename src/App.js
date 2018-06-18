@@ -6,7 +6,6 @@ import Cards from './components/Cards';
 import CardsSaved from './components/CardsSaved';
 import _ from 'lodash';
 
-import SubmitForm from './components/SubmitForm';
 import {
     Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardLink, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
