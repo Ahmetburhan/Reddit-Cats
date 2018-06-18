@@ -62,7 +62,7 @@ export default class CardsSaved extends React.Component {
                 <Cards cats={this.props.selectedCats} title={
                     this.props.selectedCats && this.props.selectedCats.length + " Total Cats Selected"
                 } />
-                <button className="btn btn-default" type="submit" name="resetForm" value="cancel" onClick={this.resetForm}>Reset</button>
+                <Button className="btn btn-default" type="submit" name="resetForm" value="cancel" onClick={this.resetForm}>Reset</Button>
                 
         
             </div>

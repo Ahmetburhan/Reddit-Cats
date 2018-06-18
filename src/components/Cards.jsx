@@ -77,12 +77,16 @@ export default class Cards extends React.Component {
                                         <CardTitle>
                                         <CardLink href={`https://www.reddit.com/${cat.data.permalink}`} target="_blank">
                                         
+                                                {trimmedTitle}...
+                                                 
+                                        <Badge color="primary" onClick={e => {
+                                                    e.preventDefault()
+                                                    this.findDetail(cat.data.created)
+                                                }} >
+                                        <i style={{ horizonalAlign: "1.4em" }} className="far fa-thumbs-up fa-1x"></i> 
+                                                </Badge>
                                         
-                                        {trimmedTitle}... 
-                                        <Button onClick={e => {
-                                            e.preventDefault()
-                                            this.findDetail(cat.data.created)
-                                        }} color="danger"><i style={{ verticalAlign: "-0.24em" }} className="far fa-thumbs-up fa-1x"></i></Button>
+
                                         </CardLink>
                                         
                                         </CardTitle>
