@@ -37,10 +37,11 @@ export default class CardsSaved extends React.Component {
         window.location.reload();
         // localStorage.clear();
 
-        this.setState({
-            selectedCats:[]
-            
-        });
+        this.setState(
+            {
+            selectedCats:[]  
+        }
+    );
     }
 
     render() {
